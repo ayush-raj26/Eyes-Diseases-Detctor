@@ -30,6 +30,7 @@ def main():
         image_input = st.file_uploader("Choose an eye image: ", type=['png', 'jpg'])
         if(st.button("Click a photo")):
             image_input = st.camera_input("Take a picture")
+            st.image(image_input)
             st.image(image_input,width=300)
         if image_input:
             img = image_input.getvalue()
