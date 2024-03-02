@@ -24,7 +24,13 @@ def main():
     elif menu == "Eyes":
         st.sidebar.write("It analyzes cataract, diabetic retinopathy and redness levels. Upload an image to get started.")
         st.write("---------------------------")
-        image_input = st.sidebar.file_uploader("Choose an eye image: ", type="jpg")
+        st.button("Reset", type="primary")
+        image_input = st.empty()
+        
+        image_input = st.file_uploader("Choose an eye image: ", type=['png', 'jpg'])
+        if(st.button("Click a photo")):
+            image_input = st.camera_input("Take a picture")
+            st.image(image_input,width=300)
         if image_input:
             img = image_input.getvalue()
             st.sidebar.image(img, width=300)#, height=300)
